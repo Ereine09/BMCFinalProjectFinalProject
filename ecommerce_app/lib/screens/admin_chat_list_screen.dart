@@ -12,6 +12,7 @@ class AdminChatListScreen extends StatelessWidget {
         title: const Text('Active Chats'),
       ),
       body: StreamBuilder<QuerySnapshot>(
+        // 1. Query all chats, sorted by last message
         stream: FirebaseFirestore.instance
             .collection('chats')
             .orderBy('lastMessageAt', descending: true)
@@ -38,6 +39,7 @@ class AdminChatListScreen extends StatelessWidget {
               final String userEmail = chatData['userEmail'] ?? 'User ID: $userId';
               final String lastMessage = chatData['lastMessage'] ?? '...';
 
+              // 2. --- NEW: Get the admin's unread count ---
               final int unreadCount = chatData['unreadByAdminCount'] ?? 0;
 
               return ListTile(
@@ -49,6 +51,7 @@ class AdminChatListScreen extends StatelessWidget {
                   overflow: TextOverflow.ellipsis,
                 ),
 
+                // 3. --- NEW: Show a Badge on the trailing icon ---
                 trailing: unreadCount > 0
                     ? Badge(
                   label: Text('$unreadCount'),

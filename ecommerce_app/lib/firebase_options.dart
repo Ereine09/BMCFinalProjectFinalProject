@@ -2,6 +2,7 @@
 // ignore_for_file: type=lint
 import 'package:firebase_core/firebase_core.dart' show FirebaseOptions;
 import 'package:flutter/foundation.dart'
+
     show defaultTargetPlatform, kIsWeb, TargetPlatform;
 
 /// Default [FirebaseOptions] for use with your Firebase apps.
@@ -65,4 +66,5 @@ class DefaultFirebaseOptions {
     projectId: 'my-ecommerce-app-305-71864',
     storageBucket: 'my-ecommerce-app-305-71864.firebasestorage.app',
   );
+
 }
