@@ -9,11 +9,12 @@ import 'package:ecommerce_app/providers/cart_provider.dart'; // 1. ADD THIS
 import 'package:provider/provider.dart'; // 2. ADD THIS
 import 'package:google_fonts/google_fonts.dart'; // 1. ADD THIS IMPORT
 
-// 2. --- VEGETABLE GREENISH THEME COLOR PALETTE ---
-const Color kRichBlack = Color(0xFF000000); // black for text
-const Color kBrown = Color(0xFF000000); 
-const Color kLightBrown = Color(0xFF000000);
-const Color kOffWhite = Color(0xFFA07F88); // sand pink for backgrounds
+// --- RUNNR THEME COLOR PALETTE ---
+const Color kPrimaryOrange = Color(0xFFF26522); // Main brand orange from Runnr
+const Color kRichBlack = Color(0xFF212121); // Dark grey for text
+const Color kAccentGrey = Color(0xFF888888); // For secondary elements/borders
+const Color kAppBackground = Color(0xFFF5F5F5); // Light grey app background
+const Color kWhite = Color(0xFFFFFFFF); // Pure white for cards
 // --- END OF COLOR PALETTE ---
 
 void main() async {
@@ -53,28 +54,28 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         // 2. Set the main color scheme
         colorScheme: ColorScheme.fromSeed(
-          seedColor: kBrown,
+          seedColor: kPrimaryOrange,
           // Our new primary color
           brightness: Brightness.light,
-          primary: kBrown,
-          onPrimary: Colors.white,
-          secondary: kLightBrown,
-          background: kOffWhite, // Our new app background
+          primary: kPrimaryOrange,
+          onPrimary: kWhite,
+          secondary: kAccentGrey,
+          background: kAppBackground, // Our app background
         ),
         useMaterial3: true,
 
         // 3. Set the background color for all screens
-        scaffoldBackgroundColor: kOffWhite,
+        scaffoldBackgroundColor: kAppBackground,
 
-        // 4. --- (FIX) APPLY THE GOOGLE FONT ---
+        // 4. --- APPLY THE GOOGLE FONT ---
         // This applies "Lato" to all text in the app
         textTheme: GoogleFonts.latoTextTheme(Theme.of(context).textTheme),
 
-        // 5. --- (FIX) GLOBAL BUTTON STYLE ---
+        // 5. --- GLOBAL BUTTON STYLE ---
         elevatedButtonTheme: ElevatedButtonThemeData(
           style: ElevatedButton.styleFrom(
-            backgroundColor: kBrown, // Use our new brown
-            foregroundColor: Colors.white, // Text color
+            backgroundColor: kPrimaryOrange, // orange
+            foregroundColor: kWhite, // Text color
             padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 24),
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(12), // Rounded corners
@@ -82,23 +83,23 @@ class MyApp extends StatelessWidget {
           ),
         ),
 
-        // 6. --- (FIX) GLOBAL TEXT FIELD STYLE ---
+        // 6. --- GLOBAL TEXT FIELD STYLE ---
         inputDecorationTheme: InputDecorationTheme(
           border: OutlineInputBorder(
             borderRadius: BorderRadius.circular(12),
             borderSide: BorderSide(color: Colors.grey[400]!),
           ),
-          labelStyle: TextStyle(color: kBrown.withOpacity(0.8)),
+          labelStyle: TextStyle(color: kPrimaryOrange.withOpacity(0.8)),
           focusedBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(12),
-            borderSide: const BorderSide(color: kBrown, width: 2.0),
+            borderSide: const BorderSide(color: kPrimaryOrange, width: 2.0),
           ),
         ),
 
-        // 7. --- (FIX) GLOBAL CARD STYLE ---
+        // 7. --- GLOBAL CARD STYLE ---
         cardTheme: CardThemeData(
           elevation: 1, // A softer shadow
-          color: Colors.white, // Pure white cards on the off-white bg
+          color: kWhite, // Pure white cards on the light grey bg
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(12),
           ),
@@ -106,9 +107,9 @@ class MyApp extends StatelessWidget {
           clipBehavior: Clip.antiAlias,
         ),
 
-        // 9. --- (NEW) GLOBAL APPBAR STYLE ---
+        // 9. --- GLOBAL APPBAR STYLE ---
         appBarTheme: const AppBarTheme(
-          backgroundColor: Colors.white, // Clean white AppBar
+          backgroundColor: kWhite, // Clean white AppBar
           foregroundColor: kRichBlack, // Black icons and text
           elevation: 0, // No shadow, modern look
           centerTitle: true,

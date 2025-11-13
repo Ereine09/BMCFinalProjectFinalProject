@@ -10,7 +10,6 @@ class OrderCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
     // 3. Safely get the timestamp
     final Timestamp? timestamp = orderData['createdAt'];
     final String formattedDate;
@@ -18,8 +17,9 @@ class OrderCard extends StatelessWidget {
     if (timestamp != null) {
       // 4. Use DateFormat to make it readable
       //    (e.g., "11/06/2025 - 10:51 AM")
-      formattedDate = DateFormat('MM/dd/yyyy - hh:mm a')
-          .format(timestamp.toDate());
+      formattedDate = DateFormat(
+        'MM/dd/yyyy - hh:mm a',
+      ).format(timestamp.toDate());
     } else {
       formattedDate = 'Date not available';
     }

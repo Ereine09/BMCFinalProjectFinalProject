@@ -36,13 +36,13 @@ flutter:
 
 flutter_native_splash:
 
-  color: "#FFFFFF" # This is white
+  color: "#FF9900" # This is orange
 
-  image: assets/image/splash_logo.png
+  image: assets/images/splash_logo.png
 
   android_12:
-    color: "#FFFFFF"
-    image: assets/image/splash_logo.png
+    color: "#FF9900"
+    image: assets/images/splash_logo.png
 
 
   web: true
